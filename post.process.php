@@ -19,4 +19,8 @@
 
     header("location: {$_SERVER['HTTP_ORIGIN']}/test_task/index.php?status=deleted");
 
-  }
+  } else if($_POST['save'] === 'del') {
+    $id = $_POST['check'];
+    $posts->delPost($id);
+
+    header("location: {$_SERVER['HTTP_ORIGIN']}/test_task/index.php?status=deleted");

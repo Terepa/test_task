@@ -9,6 +9,7 @@
     <form class="d-flex">
       <a class="btn btn-primary me-2" href="addproduct.php">ADD</a>
       <button class="btn btn-primary me-2" type="submit">MASS DELETE</button>
+      <button type="submit" class="btn btn-success" name="save">DELETE</button>
     </form>
   </div>
 </nav>
@@ -28,6 +29,8 @@
         echo "<p class='card-title'>" . $post['name'] . "</p>";
         echo "<p class='card-title'>" . $post['price'] . "</p>";
         echo "<p class='card-title'>" . $post['brand'] . "</p>";
+
+        echo "<input type='checkbox' id='checkItem' name='check' value=". $post['id'] ." >";
         echo "</div>";
         echo "</div>";
         echo "</div>";
