@@ -4,6 +4,7 @@
   if (isset($_POST['delete'])) { 
    print_r($_POST['postToDelete']);
    
+   
   }
 ?>
     <form method="POST">
