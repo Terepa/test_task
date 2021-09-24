@@ -14,3 +14,5 @@ $('select[name=add-brand]').change(function () {
 
 });
 $('select[name=add-brand]').trigger("change");
+
+

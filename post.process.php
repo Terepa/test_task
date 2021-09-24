@@ -1,4 +1,5 @@
 <?php 
+
   include "./includes/class-autoload.inc.php";
 
   $posts = new Posts();
@@ -13,14 +14,7 @@
   
     header("location: {$_SERVER['HTTP_ORIGIN']}/test_task/index.php?status=added");
   
-  } else if($_GET['send'] === 'del') {
-    $id = $_GET['id'];
-    $posts->delPost($id);
-
-    header("location: {$_SERVER['HTTP_ORIGIN']}/test_task/index.php?status=deleted");
-
-  } else if($_POST['save'] === 'del') {
-    $id = $_POST['check'];
-    $posts->delPost($id);
-
-    header("location: {$_SERVER['HTTP_ORIGIN']}/test_task/index.php?status=deleted");
+ 
+    }
+    
+   

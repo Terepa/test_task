@@ -18,9 +18,11 @@ class Posts extends Dbh {
   }
 
 
-  public function delPost($id) {
-    $sql = "DELETE FROM posts WHERE id = ?";
+  public function massDeletePosts(array $ids) 
+  {
+    $sql = "DELETE FROM posts WHERE id IN (?)";
     $stmt = $this->connect()->prepare($sql);
-    $stmt->execute([$id]);
+    $stmt->execute([implode(',', $ids)]);
+
   }
 }
