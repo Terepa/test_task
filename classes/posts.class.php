@@ -23,7 +23,6 @@ class Posts extends Dbh {
     $sql = "DELETE FROM posts WHERE id IN (?)";
     $stmt = $this->connect()->prepare($sql);
     $stmt->execute([implode(',', $ids)]);
-    print_r(implode(',', $ids));
-
+   
   }
 }

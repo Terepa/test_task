@@ -2,19 +2,17 @@
   include "./includes/class-autoload.inc.php";
   require_once("./templates/header.php");
 ?>
-
-      <nav class="navbar navbar-light">
-        <div class="container-fluid">
-          <a class="navbar-brand">Product list</a>
-          <form class="d-flex">
-            <a class="btn btn-primary me-2" href="addproduct.php">ADD</a>
-            <button class="btn btn-primary me-2" id="delete-product-btn" type="submit">MASS DELETE</button>
-          </form>
-        </div>
-      </nav>
-
       <form method="POST">
       <input type="hidden" name="delete" value="1">
+          <nav class="navbar navbar-light">
+            <div class="container-fluid">
+              <a class="navbar-brand">Product list</a>
+              <div>
+                <a class="btn btn-primary me-2" href="addproduct.php">ADD</a>
+                <button class="btn btn-primary me-2" id="delete-product-btn" type="submit">MASS DELETE</button>
+              </div>
+            </div>
+          </nav>
 
 
       <div class="row row-cols-1 row-cols-md-4 g-3">
