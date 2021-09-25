@@ -4,7 +4,7 @@ class Dbh {
   private $host = "localhost";
   private $user = "root";
   private $pwd = "";
-  private $dbName = "oopblog";
+  private $dbName = "productdb";
 
   public function connect() {
     $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbName;
