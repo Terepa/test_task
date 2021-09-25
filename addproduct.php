@@ -38,9 +38,9 @@
           <!-- Tipe Swither -->
         <div class="col-md-4">
             <div id="#productType" class="input-group mb-3"> 
-              <label class="input-group-text" for="#productType">Type Switcher</label>
+              <label class="input-group-text" for="#productType" required>Type Switcher</label>
                 <select class="form-select" id="#productType" name="add-brand">
-                  <option selected value>Choose...</option>
+                  <option >Choose...</option>
                   <option name="add-brand" value="FURNITURE">FURNITURE</option>
                   <option name="add-brand" value="BOOK">BOOK</option>
                   <option name="add-brand" value="DVD">DVD</option>
