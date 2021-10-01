@@ -1,93 +1,168 @@
-<?php 
-  require_once("./templates/header.php");
-  include "./includes/class-autoload.inc.php";
+<?php
+require_once("./templates/header.php");
+include "./includes/class-autoload.inc.php";
 
 ?>
 
 
-  <nav class="navbar navbar-light">
-    <div class="container-fluid">
-      <a class="navbar-brand">Product Add</a>
+<nav class="navbar navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Product Add</a>
+  </div>
+</nav>
+
+<!-- form input -->
+<form method="POST" action="post.process.php" id="product_form">
+  <div class="row">
+    <div class="col-md-3">
+      <label>SKU
+        <input class="form-control" name="add-sku" id="sku" type="text" />
+      </label>
     </div>
-  </nav>
+  </div>
 
-      <!-- form input -->
-    <form method="POST" action="post.process.php">
-        <div class="row">
-          <div class="col-md-3">
-            <label for="#sku">SKU </label>
-            <input class="form-control" name="add-sku" type="text" id="#sku" required>
-          </div>
-        </div>
+  <div class="row">
+    <div class="col-md-3">
+      <label>Name
+        <input class="form-control" name="add-name" id="name" type="text" />
+      </label>
+    </div>
+  </div>
 
-        <div class="row">
-          <div class="col-md-3">
-            <label for="#name">Name </label>
-            <input class="form-control" name="add-name" type="text" id="#name" required>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-3">
-            <label for="#price">Price ($) </label>
-            <input class="form-control" name="add-price" type="text" id="#price" required>
-          </div> 
-        </div> <br>
+  <div class="row">
+    <div class="col-md-3">
+      <label>Price ($)
+        <input class="form-control" name="add-price" id="price" type="text" />
+      </label>
+    </div>
+  </div> <br>
 
 
-          <!-- Tipe Swither -->
-        <div class="col-md-4">
-            <div id="#productType" class="input-group mb-3"> 
-              <label class="input-group-text" for="#productType" required>Type Switcher</label>
-                <select class="form-select" id="#productType" name="add-brand">
-                  <option >Choose...</option>
-                  <option name="add-brand" value="FURNITURE">FURNITURE</option>
-                  <option name="add-brand" value="BOOK">BOOK</option>
-                  <option name="add-brand" value="DVD">DVD</option>
-                </select>
-            </div>
+  <!-- Tipe Swither -->
+  <div class="col-md-4">
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="productType" required>Type Switcher</label>
+      <select class="form-select" id="productType" name="add-brand">
+        <option value="">Choose...</option>
+        <option value="FURNITURE">FURNITURE</option>
+        <option value="BOOK">BOOK</option>
+        <option value="DVD">DVD</option>
+      </select>
+    </div>
+    <div id="paramHolder">
+      <i>Select one of Product Type...</i>
+    </div>
+  </div>
 
-          <div class="dvd">
-            <label for="#size">Size (MB)</label>
-            <input type="text" class="form-control w-100" name="first_name" id="#size"/>
-            <p>Please enter disk size in MB</p>
-          </div>
+  <div>
+    <button type="button" id="saveButton" class="btn btn-primary me-2">Save</button>
+    <a class="btn btn-primary me-2" href="index.php">Cancel</a>
+  </div>
 
-          <div class="book"> 
-            <label for="#weight">Weight (KG)</label>
-            <input type="text" class="form-control w-100" name="fax_num" id="#weight"/>
-            <p>Please enter book weight in KG</p>
-          </div>
+</form>
 
-          <div class="furniture">
-            <label for="#height">Height (CM)</label>
-            <input type="text" class="form-control w-100" name="last_name" id="#height"/>
-          </div>
+<script type="text/javascript">
+  $("#productType").change(function() {
+    $.post(
+      "ajax_get_fieldset.php", {
+        setid: $(this).val()
+      },
+      function(fieldset) {
+        $("#paramHolder").html(fieldset);
+      }
+    );
+  });
+
+  $("#saveButton").click(function() {
+
+    if ($("#sku").val().length < 2) {
+      alert('SKU need to be at least 2 characters');
+      $("#sku").focus();
+      return;
+    }
+
+    $.post(
+      "ajax_check_sku.php", {
+        sku: $("#sku").val()
+      },
+      function(ret) {
+
+        if (ret == 1) {
+          alert('SKU already exists');
+          $("#sku").focus();
+          return;
+        }
+
+        if ($("#name").val().length < 2) {
+          alert('Name need to be at least 2 characters');
+          $("#name").focus();
+          return;
+        }
+
+        if (!checkNumber($("#price").val())) {
+          alert('Price is not like #.##');
+          $("#price").focus();
+          return;
+        }
+
+        if ($("#productType").val() == '') {
+          alert("Please select Product Type!");
+          return;
+        }
+
+        if ($("#productType").val() == 'FURNITURE') {
 
 
-          <div class="furniture"> 
-            <label for="#width">Width (CM)</label>
-            <input type="text" class="form-control w-100" name="website" id="#width"/>
-          </div>
+          if (!checkNumber($("#height").val())) {
+            alert('Item height should be number...');
+            $("#height").focus();
+            return;
+          }
 
-          <div class="furniture"> 
-            <label for="#lenght">Lenght (CM)</label>
-            <input type="text" class="form-control w-100" name="website" id="#lenght"/>
-          </div>
 
-          <div class="furniture"> 
-            <p>Please provide dimensions in HxWxL format</p>
-          </div>
+          if (!checkNumber($("#width").val())) {
+            alert('Item width should be number...');
+            $("#width").focus();
+            return;
+          }
 
-        </div>
-        
-        <div>
-          <button type="submit" name="submit" class="btn btn-primary me-2">Save</button>
-          <a class="btn btn-primary me-2" href="http://localhost/test_task/">Cancel</a>
-        </div>
+          if (!checkNumber($("#length").val())) {
+            alert('Item length should be number...');
+            $("#length").focus();
+            return;
+          }
 
-    </form>
+        }
 
-<?php 
-  require_once("./templates/footer.php");
+        if ($("#productType").val() == 'BOOK') {
+          if (!checkNumber($("#weight").val())) {
+            alert('Item weight should be number...');
+            $("#weight").focus();
+            return;
+          }
+
+        }
+        if ($("#productType").val() == 'DVD') {
+
+          if (!checkNumber($("#size").val())) {
+            alert('Item size should be number...');
+            $("#size").focus();
+            return;
+          }
+
+        }
+        $("#product_form").submit();
+      }
+    );
+
+
+  });
+
+  function checkNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n) && (parseFloat(n) > 0);
+  }
+</script>
+
+<?php
+require_once("./templates/footer.php");
 ?>
