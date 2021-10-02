@@ -17,7 +17,7 @@ class Dbh
     $this->charset = "utf8mb4";
 
     try {
-      $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbName  . ';charset=' . $this->charset;
+      $dsn = 'mysql: host=' . $this->host . ';dbname=' . $this->dbName  . ';charset=' . $this->charset;
       $pdo = new PDO($dsn, $this->user, $this->pwd);
       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       return $pdo;
