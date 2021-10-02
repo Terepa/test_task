@@ -2,16 +2,16 @@
 
 class Dbh
 {
-  private $host = "remotemysql.com";
-  private $user = "NsJrfw5ErR";
-  private $pwd = "t5ySGQwak2";
-  private $dbName = "NsJrfw5ErR";
+  public $host = "remotemysql.com";
+  public $user = "NsJrfw5ErR";
+  public $pwd = "t5ySGQwak2";
+  public $dbName = "NsJrfw5ErR";
 
   public function connect()
   {
     $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbName;
     $pdo = new PDO($dsn, $this->user, $this->pwd);
-    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $pdo;
   }
 }
