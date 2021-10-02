@@ -1,12 +1,12 @@
 <?php
 include "./includes/class-autoload.inc.php";
-require_once("./templates/header.php");
-$param_prefix['FURNITURE'] = 'Dimensions';
-$param_prefix['BOOK'] = 'Weight';
-$param_prefix['DVD'] = 'Size';
-$param_postfix['FURNITURE'] = '';
-$param_postfix['BOOK'] = 'KG';
-$param_postfix['DVD'] = 'MB';
+// require_once("./templates/header.php");
+// $param_prefix['FURNITURE'] = 'Dimensions';
+// $param_prefix['BOOK'] = 'Weight';
+// $param_prefix['DVD'] = 'Size';
+// $param_postfix['FURNITURE'] = '';
+// $param_postfix['BOOK'] = 'KG';
+// $param_postfix['DVD'] = 'MB';
 ?>
 
 <?php
