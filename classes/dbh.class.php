@@ -6,7 +6,7 @@ class Dbh
   private $user;
   private $pwd;
   private $dbName;
-  private $charset;
+  private $port;
 
   public function connect()
   {
