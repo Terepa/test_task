@@ -2,10 +2,10 @@
 
 class Dbh
 {
-  private $host = "localhost";
-  private $user = "root";
-  private $pwd = "";
-  private $dbName = "productdb";
+  private $host = "remotemysql.com";
+  private $user = "NsJrfw5ErR";
+  private $pwd = "t5ySGQwak2";
+  private $dbName = "NsJrfw5ErR";
 
   public function connect()
   {
