@@ -9,10 +9,6 @@ $param_postfix['BOOK'] = 'KG';
 $param_postfix['DVD'] = 'MB';
 ?>
 
-<?php
-$object = new Dbh;
-$object->connect();
-?>
 
 <form method="POST">
   <input type="hidden" name="delete" value="1">
