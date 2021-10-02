@@ -13,7 +13,7 @@ class Dbh
     $this->host = "remotemysql.com";
     $this->user = "NsJrfw5ErR";
     $this->pwd = "t5ySGQwak2";
-    $this->dbName = "NsJrfw5ErR";
+    $this->dbName = "NsJrfw5ErR777";
     $this->charset = "utf8mb4";
 
     try {
