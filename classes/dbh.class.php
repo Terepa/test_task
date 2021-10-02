@@ -2,18 +2,27 @@
 
 class Dbh
 {
-  public $host = "remotemysql.com";
-  public $user = "NsJrfw5ErR";
-  public $pwd = "t5ySGQwak2";
-  public $dbName = "NsJrfw5ErR";
-  public $charset = "utf8mb4";
+  private $host;
+  private $user;
+  private $pwd;
+  private $dbName;
+  private $charset;
 
   public function connect()
   {
-    $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbName  . ';charset=' . $this->charset;
-    $pdo = new PDO($dsn, $this->user, $this->pwd);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    return $pdo;
-    print_r($pdo);
+    $this->host = "remotemysql.com";
+    $this->user = "NsJrfw5ErR";
+    $this->pwd = "t5ySGQwak2";
+    $this->dbName = "NsJrfw5ErR";
+    $this->charset = "utf8mb4";
+
+    try {
+      $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbName  . ';charset=' . $this->charset;
+      $pdo = new PDO($dsn, $this->user, $this->pwd);
+      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      return $pdo;
+    } catch (PDOException $e) {
+      echo "Connection failed: " . $e->getMessage();
+    }
   }
 }
