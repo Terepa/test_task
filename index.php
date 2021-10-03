@@ -1,11 +1,11 @@
 <?php
 include "./includes/class-autoload.inc.php";
 require_once("./templates/header.php");
-$param_prefix['FURNITURE'] = 'Dimensions';
-$param_prefix['BOOK'] = 'Weight';
+$param_prefix['Furniture'] = 'Dimensions';
+$param_prefix['Book'] = 'Weight';
 $param_prefix['DVD'] = 'Size';
-$param_postfix['FURNITURE'] = '';
-$param_postfix['BOOK'] = 'KG';
+$param_postfix['Furniture'] = '';
+$param_postfix['Book'] = 'KG';
 $param_postfix['DVD'] = 'MB';
 ?>
 
@@ -42,7 +42,7 @@ $param_postfix['DVD'] = 'MB';
               $param_html = @$param_prefix[$post['brand']] . ': ';
 
               if ($posts->getParams($post['id'])) {
-                if ($post['brand'] == "FURNITURE") {
+                if ($post['brand'] == "Furniture") {
                   foreach ($posts->getParams($post['id']) as $params) {
                     $param_html .= $params['param_value'] . "x";
                   }
