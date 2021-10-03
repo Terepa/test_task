@@ -22,9 +22,6 @@ $param_postfix['DVD'] = 'MB';
     </div>
   </nav>
 
-
-
-
   <div class="row row-cols-1 row-cols-md-4 g-3">
     <?php
     $posts = new Posts();
@@ -41,10 +38,7 @@ $param_postfix['DVD'] = 'MB';
               <p class='card-title'><?= $post['sku']; ?></p>
               <p class='card-title'><?= $post['name']; ?></p>
               <p class='card-title'><?= $post['price']; ?> $</p>
-
               <?php
-
-
               $param_html = @$param_prefix[$post['brand']] . ': ';
 
               if ($posts->getParams($post['id'])) {
