@@ -9,32 +9,32 @@ switch ($_POST['setid']) {
     echo '<i>Select one of Product Type...</i>';
     break;
 
-  case 'FURNITURE':
+  case 'Furniture':
 ?>
-    <div class="furniture">
+    <div class="Furniture">
       <label>Height (CM)
         <input type="text" id="height" class="form-control w-100" name="param[]" required />
       </label>
     </div>
-    <div class="furniture">
+    <div class="Furniture">
       <label>Width (CM)
         <input type="text" id="width" class="form-control w-100" name="param[]" required />
       </label>
     </div>
-    <div class="furniture">
+    <div class="Furniture">
       <label>Lenght (CM)
         <input type="text" id="length" class="form-control w-100" name="param[]" required />
       </label>
     </div>
-    <div class="furniture">
+    <div class="Furniture">
       <p>Please provide dimensions in HxWxL format</p>
     </div>
   <?php
     break;
 
-  case 'BOOK':
+  case 'Book':
   ?>
-    <div class="book">
+    <div class="Book">
       <label>Weight (KG)
         <input type="text" id="weight" class="form-control w-100" name="param[]" required />
       </label>

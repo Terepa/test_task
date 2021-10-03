@@ -32,7 +32,7 @@ include "./includes/class-autoload.inc.php";
   <div class="row">
     <div class="col-md-3">
       <label>Price ($)
-        <input class="form-control" name="add-price" id="price" type="text" />
+        <input class="form-control" name="add-price" id="price" type="number" min="0.00" step="0.01" />
       </label>
     </div>
   </div> <br>
