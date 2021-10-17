@@ -22,7 +22,7 @@ require_once("./templates/header.php");
   <div class="row">
     <div class="col-md-3">
       <label for="name">Name
-        <input class="form-control" name="name" id="name" type="text" pattern="^[a-zA-Z]*$" required />
+        <input class="form-control" name="name" id="name" type="text" pattern="^[a-zA-Z0-9]*$" required />
       </label>
     </div>
   </div>
