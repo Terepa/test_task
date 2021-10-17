@@ -42,9 +42,9 @@ require_once("./templates/header.php");
       <label class="input-group-text" for="Type-Switcher" required>Type Switcher</label>
       <select class="form-select" id="productType" name="Type-Switcher">
         <option value="">Choose...</option>
-        <option id="furniture" value="furniture">FURNITURE</option>
-        <option id="book" value="book">BOOK</option>
-        <option id="dvd" value="dvd">DVD</option>
+        <option id="Furniture" value="Furniture">FURNITURE</option>
+        <option id="Book" value="Book">BOOK</option>
+        <option id="DVD" value="DVD">DVD</option>
       </select>
     </div>
     <div id="type" class="type">
