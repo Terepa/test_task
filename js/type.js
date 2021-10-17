@@ -2,21 +2,21 @@
 let select = document.getElementById("productType");
 
 
-function dvd() {
+function DVD() {
   return `
       <label for="size">Size (MB)</label>
       <input class="form-control w-100" name="size" id="size" type="text" pattern="^[0-9]*$" required/>
       <p>Please provide size.</p>
       `;
 }
-function book() {
+function Book() {
   return `
       <label for="weight">Weight (KG)</label>
       <input class="form-control w-100" name="weight" id="weight" type="text" pattern="^[0-9]*$" required/>
       <p>Please provide weight.</p>
       `;
 }
-function furniture() {
+function Furniture() {
   return `
       <label for="height">Height (CM)</label>
       <input class="form-control w-100" name="height" id="height" type="text" pattern="^[0-9]*$" required/>
